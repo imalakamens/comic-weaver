@@ -8,5 +8,6 @@ router.get('/', comicsCtrl.index);
 router.get('/new', comicsCtrl.new);
 /* POST  /comics - this will actually be a POST*/
 router.post('/', comicsCtrl.create);
-
+/* GET /comics/:id */
+router.get('/:id', comicsCtrl.show);
 module.exports = router;

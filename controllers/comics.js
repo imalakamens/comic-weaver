@@ -3,7 +3,8 @@ const Comic = require('../models/comic')
 module.exports = {
     index,
     new: newComic,
-    create
+    create,
+    show
 };
 
 function index(req, res) {
@@ -24,5 +25,11 @@ function create(req, res) {
     comic.save(err => {
         if(err) return res.redirect('comics/new', alert('Do it again'));
         res.redirect('/comics');
+    });
+};
+
+function show(req, res) {
+    Comic.findById(req.params.id, (err, comic) =>{
+        res.render('comics/show', {title:`${req.title}`, comic} )
     });
 };

@@ -5,7 +5,10 @@
     </div>
     <div>
         <% comics.forEach( c => { %>
-            <p><%= c.title %></p> 
+        <%= c.title %>
+            <a href="comics/<%=c._id%>">
+                click
+            </a></p> 
         <% }); %>      
     </div>
 
