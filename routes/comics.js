@@ -5,5 +5,8 @@ const comicsCtrl = require('../controllers/comics')
 /* GET /comics */
 router.get('/', comicsCtrl.index);
 /* GET /comics/new */
-router.get('/new', comicsCtrl.new)
+router.get('/new', comicsCtrl.new);
+/* POST  /comics - this will actually be a POST*/
+router.post('/', comicsCtrl.create);
+
 module.exports = router;

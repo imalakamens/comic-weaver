@@ -1,8 +1,20 @@
 <%- include('../partials/header') %> 
-
-    <h1><%= title %></h1>
-    <p>🥞Making pancakes... I mean comics! Definitely making comics and NOT pancakes🥞</p>
-    <form action="/comics" id="new-form"></form>
+    <div id="main">
+        <h1><%= title %></h1>
+        <p>🥞Making pancakes... I mean comics! Definitely making comics and NOT pancakes🥞</p>
+    </div>
+    <form action="/comics" method="POST" class="new-form"> <!-- Action needs attention -->
+    <label>-Title-</label>
+    <input type="text" name="title">
+    <br><label>-Issue/Trade #-</label>
+    <input type="text" name="issueNum">
+    <br><label>-Writer-</label> <!-- Datalist should have all writers that are currently in db -->
+    <input type="text" name="writers">
+    <br><label>-Artist-</label> <!-- Datalist should have all atists that are currently in db -->
+    <input type="text" name="artists">
+    <!-- Also might still need checkboxes for isowned and read? -->
+    <input type="submit" value="Add Comic">
+    </form>
 
 
 <%- include('../partials/footer') %> 

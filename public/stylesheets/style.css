@@ -1,11 +1,24 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  display: flex;
+  display: grid;
+  
 }
 
 a {
   color: #00B7FF;
+}
+
+#main {
+  background-color: #e6a607;
+}
+
+.new-form {
+  background-color: teal;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  
 }
 
 .navbar {
@@ -19,6 +32,6 @@ a {
 
 @media (min-width: 43em){
   body {
-    display: grid;
+    display: flex;
   }
 }

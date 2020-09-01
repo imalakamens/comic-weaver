@@ -2,7 +2,8 @@ const Comic = require('../models/comic')
 
 module.exports = {
     index,
-    new: newComic
+    new: newComic,
+    create
 };
 
 function index(req, res) {
@@ -14,4 +15,15 @@ function index(req, res) {
 function newComic(req, res) {
     /* RESPOND by RENDERING a path from from VIEWs */
     res.render('comics/new', {title: 'Add a Comic'} );
+};
+
+function create(req, res) {
+    const comic = new Comic(req.body);
+    console.log(comic)
+    // comic.user = req.user._id;
+    comic.save(err => { 
+        if(err) return res.redirect('/comics/new');
+        console.log(err);
+        res.redirect('/comics');
+    })
 };
