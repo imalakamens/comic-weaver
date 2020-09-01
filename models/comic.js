@@ -11,6 +11,7 @@ const artistSchema = new Schema ({
 
 const comicSchema = new Schema({
     title: String,
+    issueNum: Number,
     writers: [writerSchema],
     artists: [artistSchema],
     isOwned: {
