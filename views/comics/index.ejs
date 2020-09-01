@@ -1,11 +1,11 @@
 <%- include('../partials/header') %> 
-    <div>
+    <div id="mid">
         <h1><%= title %></h1>
         <p>💥Aite bet here is where all comics will be displayed💥</p>
     </div>
     <div>
         <% comics.forEach( c => { %>
-            <%= c.title %> 
+            <p><%= c.title %></p> 
         <% }); %>      
     </div>
 

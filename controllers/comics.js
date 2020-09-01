@@ -19,11 +19,10 @@ function newComic(req, res) {
 
 function create(req, res) {
     const comic = new Comic(req.body);
+    comic.user = req.user._id;
     console.log(comic)
-    // comic.user = req.user._id;
-    comic.save(err => { 
-        if(err) return res.redirect('/comics/new');
-        console.log(err);
+    comic.save(err => {
+        if(err) return res.redirect('comics/new', alert('Do it again'));
         res.redirect('/comics');
-    })
+    });
 };

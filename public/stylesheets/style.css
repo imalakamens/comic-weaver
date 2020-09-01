@@ -1,7 +1,6 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  display: grid;
   
 }
 
@@ -30,8 +29,9 @@ a {
   color:black;
 }
 
-@media (min-width: 43em){
+@media (max-width: 43em){
   body {
+    background-color: tomato;
     display: flex;
   }
 }
