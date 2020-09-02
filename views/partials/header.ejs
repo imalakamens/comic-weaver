@@ -26,7 +26,15 @@
             <a href="/comics/new" class="dropdown-item">Add Comics</a>
           </div>
         </div>
-        <a href="" class="navbar nav-link" >Artists</a>
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Creative Team
+          </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a href="/writers/new" class="dropdown-item">Add Writers</a>
+              <a href="/artists/new" class="dropdown-item">Add Artists</a>
+            </div>
+        </div>
         <a class="oauth_login" href="/logout">Log Out</a>
       <% } else { %>
         <a class="oauth_login" href="/auth/google">Login with Google</a>

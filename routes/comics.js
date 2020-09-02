@@ -10,4 +10,5 @@ router.get('/new', comicsCtrl.new);
 router.post('/', comicsCtrl.create);
 /* GET /comics/:id */
 router.get('/:id', comicsCtrl.show);
+
 module.exports = router;

@@ -1,15 +1,17 @@
 <%- include('../partials/header') %> 
     <div id="main">
-        <h1><%= title %></h1>
+        <h1><%= comic.title %></h1>
         <p>SHOW IT TO ME!👀</p>
         <p>title:<%= comic.title %></p>
+        <% if(comic.issueNum) { %> 
         <p>volume:<%= comic.issueNum %></p>
-        <p>writer:<%= comic.writers %></p>
-        <p>artist:<%= comic.artists %></p>
+        <% } %> 
+        <p>writer(s):<%= comic.writers.name %></p>
+        <p>artist(s):<%= comic.artists %></p>
         <p>read:<%= comic.isOwned %></p>
         <p>owned:<%= comic.isRead %></p>
     </div>
-  
+<a href="" class="btn">add creative team</a>
 
 
 <%- include('../partials/footer') %> 

@@ -1,4 +1,6 @@
-const Comic = require('../models/comic')
+const Comic = require('../models/comic');
+const Writer = require('../models/writer');
+const Artist = require('../models/artist')
 
 module.exports = {
     index,
@@ -13,9 +15,14 @@ function index(req, res) {
     });
 };
 
+// res.render('comics/new', {title: 'Add a Comic'} );
 function newComic(req, res) {
     /* RESPOND by RENDERING a path from from VIEWs */
-    res.render('comics/new', {title: 'Add a Comic'} );
+    Writer.find( {}, (err, writers) => {
+        Artist.find( {}, (err, artists) =>{
+            res.render('comics/new', {title: 'Add a Comic!', writers, artists} )
+        });
+    });
 };
 
 function create(req, res) {
@@ -30,6 +37,6 @@ function create(req, res) {
 
 function show(req, res) {
     Comic.findById(req.params.id, (err, comic) =>{
-        res.render('comics/show', {title:`${req.title}`, comic} )
+        res.render('comics/show', { comic } )
     });
 };

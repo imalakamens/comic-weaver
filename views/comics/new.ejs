@@ -4,17 +4,20 @@
         <p>🥞Making pancakes... I mean comics! Definitely making comics and NOT pancakes🥞</p>
     </div>
     <form action="/comics" method="POST" class="new-form"> <!-- Action needs attention -->
-    <label>-Title-</label>
+    <label for="title">-Title-</label>
     <input type="text" name="title">
-    <br><label>-Issue/Trade #-</label>
+    <br><label for="issueNum">-Issue/Trade #-</label>
     <input type="text" name="issueNum">
-    <br><label>-Writer-</label> <!-- Datalist should have all writers that are currently in db -->
-    <!-- <input type="text" name="writers"> -->
-    <br><label>-Artist-</label> <!-- Datalist should have all atists that are currently in db -->
-    <!-- <input type="text" name="artists"> -->
+    <br><label for="writers">-Writer-</label> <!-- Datalist should have all writers that are currently in db -->
+        <select name="writers">
+          <%- writers.map(w => `<option value="${w.name}">${w.name}</option>`).join('') %>
+        </select>
+    <br><label for="artists">-Artist-</label> <!-- Datalist should have all atists that are currently in db -->
+    <select name="artists">
+    <%- artists.map(a => `<option value="${a.name}">${a.name}</option>`).join('') %>
+</select>
     <!-- Also might still need checkboxes for isowned and read? -->
     <input type="submit" value="Add Comic">
     </form>
-
 
 <%- include('../partials/footer') %> 
