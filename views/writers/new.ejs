@@ -8,6 +8,10 @@
     <input type="text" name="name">
     <input type="submit" value="Add Writer">
     </form>
-
+    <% writers.forEach(w => { %> 
+        <ul> 
+            <li><%= w.name %> </li>
+        </ul>
+<% }); %> 
 
 <%- include('../partials/footer') %> 

@@ -8,6 +8,9 @@
         <input type="text" name="name">
     <input type="submit" value="Add Artist">
     </form>
-
-
+        <% artists.forEach(a => { %> 
+            <ul> 
+                <li><%= a.name %> </li>
+            </ul>
+    <% }); %> 
 <%- include('../partials/footer') %> 
