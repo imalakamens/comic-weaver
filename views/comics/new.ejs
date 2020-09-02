@@ -9,13 +9,16 @@
     <br><label for="issueNum">-Issue/Trade #-</label>
     <input type="text" name="issueNum">
     <br><label for="writers">-Writer-</label> <!-- Datalist should have all writers that are currently in db -->
-        <select name="writers">
-          <%- writers.map(w => `<option value="${w.name}">${w.name}</option>`).join('') %>
-        </select>
-    <br><label for="artists">-Artist-</label> <!-- Datalist should have all atists that are currently in db -->
-    <select name="artists">
-    <%- artists.map(a => `<option value="${a.name}">${a.name}</option>`).join('') %>
-</select>
+        <input list="writers-names" name="writers" autocomplete="off">
+        <datalist id="writers-names">
+            <%- writers.map(w => `<option value="${w.name}">${w.name}</option>`).join('') %>
+        </datalist>
+        <!-- editing down here for artists -->
+    <br><label for="artists">-Artist-</label> <!-- Datalist should have all artists that are currently in db -->
+        <input list="artists-names" name="artists" autocomplete="off">
+        <datalist id="artists-names">
+            <%- artists.map(a => `<option value="${a.name}">${a.name}</option>`).join('') %>
+        </datalist>
     <!-- Also might still need checkboxes for isowned and read? -->
     <input type="submit" value="Add Comic">
     </form>
