@@ -5,12 +5,10 @@ const comicSchema = new Schema({
     title: String,
     issueNum: Number,
     writers: [{
-        type: Schema.Types.ObjectId, ref: 'Writer',
-        default: null
+        type: Schema.Types.ObjectId, ref: 'Writer'
     }],
     artists: [{
-        type: Schema.Types.ObjectId, ref: 'Artist',
-        default: null
+        type: Schema.Types.ObjectId, ref: 'Artist'
     }],
     isOwned: {
         type: Boolean,

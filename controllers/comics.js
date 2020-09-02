@@ -30,7 +30,7 @@ function create(req, res) {
     comic.user = req.user._id;
     console.log(comic)
     comic.save(err => {
-        if(err) return res.redirect('comics/new', alert('Do it again'));
+        if(err) return res.redirect('comics/new');
         res.redirect('/comics');
     });
 };
