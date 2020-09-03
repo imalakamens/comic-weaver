@@ -16,7 +16,10 @@
                <%= a.name %>
            <% }) %> </p>
         <!-- query to see if user is in this book's "weaver" property -->
-        <p>collected by:<%= comic.usersWeaving %></p>
+        <p>collected by:
+            <% comic.usersWeaving.forEach(usr => {%>
+                <%= usr.name %> 
+            <% }) %> 
         <p>read:<%= comic.isRead %></p>
     </div>
 <a href="" class="btn btn-outline-light">Update creative team</a>

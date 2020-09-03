@@ -13,6 +13,7 @@ router.post('/:id/weave', isLoggedIn, comicsCtrl.weave);
 /* GET /comics/:id */
 router.get('/:id', comicsCtrl.show);
 
+
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();
     res.redirect('/auth/google');

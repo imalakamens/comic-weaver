@@ -1,7 +1,6 @@
 const Comic = require('../models/comic');
 const Writer = require('../models/writer');
 const Artist = require('../models/artist');
-const cookieParser = require('cookie-parser');
 
 module.exports = {
     index,
@@ -40,7 +39,7 @@ function create(req, res) {
 
 function show(req, res) {
     Comic.findById(req.params.id)
-    .populate('writers artists').exec((err,comic) => {
+    .populate('writers artists usersWeaving').exec((err,comic) => {
         res.render('comics/show', { comic } )
     });
 };
@@ -48,16 +47,13 @@ function show(req, res) {
 function weave(req, res) {
     Comic.findById(req.params.id, (err, comic) => { 
         // req.params.id is the object of the book being viewed
-        console.log('is there a req.user._id? -->', req.user._id)
         comic.user = req.user._id;
-        console.log('this is comic user', comic.user);
         comic.usersWeaving.push(comic.user);
-        console.log('here is comic',comic)
         comic.save(err => {
             if(err) {
                 return res.redirect(`comics/${comic._id}`)
             };
-            res.redirect('/')
+            res.redirect('/comics')
         });
     });
 }
