@@ -9,7 +9,7 @@ router.get('/new', comicsCtrl.new);
 /* POST  /comics - this will actually be a POST*/
 router.post('/', isLoggedIn, comicsCtrl.create);
 /* POST /comics/:id */
-router.post('/:id', isLoggedIn, comicsCtrl.weave);
+router.post('/:id/weave', isLoggedIn, comicsCtrl.weave);
 /* GET /comics/:id */
 router.get('/:id', comicsCtrl.show);
 

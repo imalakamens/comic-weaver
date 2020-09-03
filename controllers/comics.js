@@ -30,10 +30,8 @@ function newComic(req, res) {
 function create(req, res) {
     const comic = new Comic(req.body);
     comic.user = req.user._id;
-    console.log(comic)
     comic.save(err => {
-        if(err) {
-    console.log(err);           
+        if(err) {       
             return res.redirect('comics/new')
         };
         res.redirect('/comics');
@@ -43,17 +41,23 @@ function create(req, res) {
 function show(req, res) {
     Comic.findById(req.params.id)
     .populate('writers artists').exec((err,comic) => {
-        console.log(comic);
         res.render('comics/show', { comic } )
     });
 };
 
 function weave(req, res) {
-    Comic.findById(req.params.id, (err, comic) => {
-        if(comic.usersWeaving.id(req.user._id)) return res.redirect('/comics');
-        comic.usersWeaving.push(req.user._id);
-        comic.save( err => {
-            res.redirect(`comics/${comic._id}`)
+    Comic.findById(req.params.id, (err, comic) => { 
+        // req.params.id is the object of the book being viewed
+        console.log('is there a req.user._id? -->', req.user._id)
+        comic.user = req.user._id;
+        console.log('this is comic user', comic.user);
+        comic.usersWeaving.push(comic.user);
+        console.log('here is comic',comic)
+        comic.save(err => {
+            if(err) {
+                return res.redirect(`comics/${comic._id}`)
+            };
+            res.redirect('/')
         });
     });
 }
