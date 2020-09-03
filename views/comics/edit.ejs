@@ -1,13 +1,13 @@
 <%- include('../partials/header') %> 
     <div id="main">
-        <h1><%= title %></h1>
+        <h1><%= comic.title %></h1>
         <p>✏️Here's the edit page✏️</p>
     </div>
-    <form action="/comics" method="POST" class="new-form"> <!-- Action needs attention -->
+    <form action="/comics/<%=comic._id%>?_method=PUT " method="POST" class="edit-form"> <!-- Action needs attention -->
     <label for="title">-Title-</label>
-    <input type="text" name="title" required>
+    <input type="text" name="title" value="<%= comic.title %> " required>
     <br><label for="issueNum">-Issue/Trade #-</label>
-    <input type="text" name="issueNum">
+    <input type="text" name="issueNum" value="<%= comic.issueNum %> ">
 
     <br><label for="writers">-Writer-</label> <!-- Datalist should have all writers that are currently in db -->
         <select name="writers">
@@ -20,7 +20,7 @@
             <%- artists.map(a => `<option value="${a._id}">${a.name}</option>`).join('') %>
         </select>
     <!-- Also might still need checkboxes for isowned and read? -->
-    <input type="submit" value="Add Comic">
+    <input type="submit" value="Update Comic">
     </form>
 
 <%- include('../partials/footer') %> 

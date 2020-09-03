@@ -9,7 +9,8 @@ module.exports = {
     show,
     weave,
     delete: deleteComic,
-    edit
+    edit,
+    update
 };
 
 function index(req, res) {
@@ -42,7 +43,7 @@ function create(req, res) {
 function show(req, res) {
     Comic.findById(req.params.id)
     .populate('writers artists addedBy').exec((err,comic) => {
-        res.render('comics/show', { comic } )
+        res.render('comics/show', { comic, user: req.user } )
     });
 };
 
@@ -68,6 +69,18 @@ function deleteComic(req,res) {
 
 function edit(req, res) {
     Comic.findById(req.params.id, (err, comic) => {
-        res.render('comics/edit', comic)
+        Writer.find( {}, (err, writers) => {
+            Artist.find( {}, (err, artists) =>{ 
+                res.render('comics/edit', {comic, writers, artists })
+
+            });
+        });
     }); 
 };
+
+function update(req, res) {
+    console.log(req.body);
+    Comic.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedComic) => {
+        res.redirect('/comics')
+    })
+}

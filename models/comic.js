@@ -14,10 +14,10 @@ const comicSchema = new Schema({
         type: Boolean,
         default: false
     },
-    addedBy : [{
+    addedBy : {
         type: Schema.Types.ObjectId, 
         ref:'User'
-    }] 
+    } 
 });
 
 module.exports = mongoose.model('Comic', comicSchema);

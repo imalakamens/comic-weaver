@@ -14,6 +14,7 @@ router.get('/:id', comicsCtrl.show);
 router.post('/:id/weave', isLoggedIn, comicsCtrl.weave);
 /* GET /comics/:id */
 router.get('/:id/edit', comicsCtrl.edit);
+router.put('/:id', comicsCtrl.update)
 
 
 function isLoggedIn(req, res, next) {
