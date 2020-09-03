@@ -21,6 +21,6 @@ function create(req, res) {
   console.log(writer)
   writer.save(err => {
       if(err) return res.redirect('writers/new', alert('Do it again'));
-      res.redirect('/comics');
+      res.redirect('/writers/new');
   });
 };

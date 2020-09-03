@@ -6,12 +6,22 @@
         <% if(comic.issueNum) { %> 
         <p>volume:<%= comic.issueNum %></p>
         <% } %> 
-        <p>writer(s):<%= comic.writers.name %></p>
-        <p>artist(s):<%= comic.artists %></p>
-        <p>read:<%= comic.isOwned %></p>
-        <p>owned:<%= comic.isRead %></p>
-    </div>
-<a href="" class="btn">add creative team</a>
 
+        <p>writer(s):
+        <% comic.writers.forEach(w => { %>
+            <%= w.name %> 
+        <% }) %> </p>
+        <p>artist(s):
+            <% comic.artists.forEach(a => { %>
+               <%= a.name %>
+           <% }) %> </p>
+        <!-- query to see if user is in this book's "weaver" property -->
+        <p>collected by:<%= comic.usersWeaving %></p>
+        <p>read:<%= comic.isRead %></p>
+    </div>
+<a href="" class="btn btn-outline-light">Update creative team</a>
+<form action="<%=comic._id%>" method = "POST">
+    <button type="submit" class="btn btn-outline-primary">Add to my collection</button>
+</form>
 
 <%- include('../partials/footer') %> 

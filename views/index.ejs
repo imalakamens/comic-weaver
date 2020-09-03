@@ -1,6 +1,13 @@
 <%- include('./partials/header') %> 
 
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %>, login above buddy!</p>
+<% if (user) { %>    
+    <div id="main"> 
+        <h1><%= title %></h1>
+        <p>Hope to be showing off my collection here</p>
+    </div>
 
+    <% } else { %>
+        <h1><%= title %></h1>
+        <p>Welcome to <%= title %>, login above buddy!</p>
+<% } %>
 <%- include('./partials/footer') %> 

@@ -10,14 +10,14 @@ const comicSchema = new Schema({
     artists: [{
         type: Schema.Types.ObjectId, ref: 'Artist'
     }],
-    isOwned: {
-        type: Boolean,
-        default: false
-    },
     isRead: {
         type: Boolean,
         default: false
-    }
+    },
+    usersWeaving : [{
+        type: Schema.Types.ObjectId, 
+        ref:'User'
+    }] 
 });
 
 module.exports = mongoose.model('Comic', comicSchema);

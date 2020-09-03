@@ -7,8 +7,15 @@ router.get('/', comicsCtrl.index);
 /* GET /comics/new */
 router.get('/new', comicsCtrl.new);
 /* POST  /comics - this will actually be a POST*/
-router.post('/', comicsCtrl.create);
+router.post('/', isLoggedIn, comicsCtrl.create);
+/* POST /comics/:id */
+router.post('/:id', isLoggedIn, comicsCtrl.weave);
 /* GET /comics/:id */
 router.get('/:id', comicsCtrl.show);
+
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+}
 
 module.exports = router;
