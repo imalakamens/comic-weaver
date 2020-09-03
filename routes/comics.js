@@ -9,9 +9,11 @@ router.get('/new', comicsCtrl.new);
 /* POST  /comics - this will actually be a POST*/
 router.post('/', isLoggedIn, comicsCtrl.create);
 /* POST /comics/:id */
+router.delete('/comics/:id', comicsCtrl.delete);
+router.get('/:id', comicsCtrl.show);
 router.post('/:id/weave', isLoggedIn, comicsCtrl.weave);
 /* GET /comics/:id */
-router.get('/:id', comicsCtrl.show);
+router.get('/:id/edit', comicsCtrl.edit);
 
 
 function isLoggedIn(req, res, next) {

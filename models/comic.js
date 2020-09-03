@@ -14,7 +14,7 @@ const comicSchema = new Schema({
         type: Boolean,
         default: false
     },
-    usersWeaving : [{
+    addedBy : [{
         type: Schema.Types.ObjectId, 
         ref:'User'
     }] 

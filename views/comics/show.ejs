@@ -15,16 +15,23 @@
             <% comic.artists.forEach(a => { %>
                <%= a.name %>
            <% }) %> </p>
-        <!-- query to see if user is in this book's "weaver" property -->
-        <p>collected by:
-            <% comic.usersWeaving.forEach(usr => {%>
-                <%= usr.name %> 
-            <% }) %> 
+        <!-- broken query below here DO FIX-->
+        <% if(comic.addedBy._id !== user.id) { %>
+            <p>collected by:
+                <% comic.addedBy.forEach(usr => {%>
+                    <%= usr.name %> 
+                <% }) %>      
+        <% } %> 
         <p>read:<%= comic.isRead %></p>
     </div>
-<a href="" class="btn btn-outline-light">Update creative team</a>
+<a href="<%=comic._id%>/edit" class="btn btn-outline-light btn-sm">Edit Comic</a>
+
 <form action="<%=comic._id%>/weave" method = "POST">
-    <button type="submit" class="btn btn-outline-primary">Add to my collection</button>
+    <button type="submit" class="btn btn-outline-primary btn-sm">Add to my collection</button>
+</form>
+
+<form style="display: inline;" action="comics/<%=comic._id%>?_method=DELETE " method="POST"> <!-- finna be a delete action here -->
+    <button class="btn btn-danger btn-sm">Delete Comic</button>
 </form>
 
 <%- include('../partials/footer') %> 

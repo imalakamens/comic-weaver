@@ -7,7 +7,9 @@ module.exports = {
     new: newComic,
     create,
     show,
-    weave
+    weave,
+    delete: deleteComic,
+    edit
 };
 
 function index(req, res) {
@@ -28,7 +30,7 @@ function newComic(req, res) {
 
 function create(req, res) {
     const comic = new Comic(req.body);
-    comic.user = req.user._id;
+    comic.addedBy = req.user._id;
     comic.save(err => {
         if(err) {       
             return res.redirect('comics/new')
@@ -39,7 +41,7 @@ function create(req, res) {
 
 function show(req, res) {
     Comic.findById(req.params.id)
-    .populate('writers artists usersWeaving').exec((err,comic) => {
+    .populate('writers artists addedBy').exec((err,comic) => {
         res.render('comics/show', { comic } )
     });
 };
@@ -48,7 +50,7 @@ function weave(req, res) {
     Comic.findById(req.params.id, (err, comic) => { 
         // req.params.id is the object of the book being viewed
         comic.user = req.user._id;
-        comic.usersWeaving.push(comic.user);
+        comic.addedBy.push(comic.user);
         comic.save(err => {
             if(err) {
                 return res.redirect(`comics/${comic._id}`)
@@ -57,3 +59,15 @@ function weave(req, res) {
         });
     });
 }
+
+function deleteComic(req,res) {
+    Comic.findByIdAndDelete(req.params.id, err => {
+        res.redirect('/comics');
+    });  
+};
+
+function edit(req, res) {
+    Comic.findById(req.params.id, (err, comic) => {
+        res.render('comics/edit', comic)
+    }); 
+};

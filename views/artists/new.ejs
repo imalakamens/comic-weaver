@@ -5,7 +5,7 @@
     </div>
     <form action="/artists" method="POST" class="new-form"> <!-- Action needs attention -->
         <label for="name">Artist's Name:</label> 
-        <input type="text" name="name">
+        <input type="text" name="name" required>
     <input type="submit" value="Add Artist">
     </form>
         <% artists.forEach(a => { %> 
