@@ -66,7 +66,7 @@ a {
   display: flex;
   justify-content: flex-end;
 }
-@media only screen and (min-width: ) {
+@media only screen and (min-width:43em ) {
   .navbar {
     justify-content: flex-start;
   }
