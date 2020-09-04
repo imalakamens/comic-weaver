@@ -20,7 +20,7 @@ function create(req, res) {
   writer.user = req.user._id;
   console.log(writer)
   writer.save(err => {
-      if(err) return res.redirect('writers/new', alert('Do it again'));
+      if(err) return res.redirect('writers/new');
       res.redirect('/writers/new');
   });
 };

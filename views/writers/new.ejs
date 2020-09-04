@@ -1,17 +1,17 @@
 <%- include('../partials/header') %> 
-    <div id="main">
+    <div id="title">
         <h1><%= title %></h1>
-        <p>🖋This is where new writers are made🖋</p>
     </div>
     <form action="/writers" method="POST" class="new-form"> <!-- Action needs attention -->
-    <label for="name">Writer's Name:</label> 
-    <input type="text" name="name" required>
-    <input type="submit" value="Add Writer">
+        <label for="name">Writer's Name:</label> 
+        <input type="text" name="name" required>
+        <input type="submit" value="Add Writer">
     </form>
-    <% writers.forEach(w => { %> 
-        <ul> 
-            <li><%= w.name %> </li>
-        </ul>
-<% }); %> 
+
+    <div class="artist-list">
+        <% writers.forEach(w => { %> 
+                <p><%= w.name %> </p>
+        <% }); %> 
+    </div>
 
 <%- include('../partials/footer') %> 

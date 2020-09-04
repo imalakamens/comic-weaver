@@ -20,7 +20,7 @@ function create(req, res) {
   artist.user = req.user._id;
   console.log(artist)
   artist.save(err => {
-      if(err) return res.redirect('artists/new', alert('Do it again'));
+      if(err) return res.redirect('artists/new');
       res.redirect('/artists/new');
   });
 };

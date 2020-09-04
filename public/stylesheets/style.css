@@ -1,23 +1,47 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  
+  text-align: center;
+}
+
+#login-text {
+  list-style-type: none;
+}
+
+ul{
+  list-style-type: none;
+}
+
+h1 {
+  text-align: center;
 }
 
 a {
-  color: #00B7FF;
+  color: gainsboro;
 }
 
-#main {
+.navbar, footer {
   background-color: #e6a607;
+  width: auto;
+  margin: 0 auto;
+  width:100%;
+  text-align: center;
+  height:3.5em;
+  border: 0.1em solid black;
+  flex-shrink:0;
 }
 
 .new-form {
   background-color: teal;
+  border: 0.1em solid whitesmoke;
   display: grid;
   justify-content: center;
-  text-align: center;
-  
+}
+
+.edit-form{
+  background-color: teal;
+  border: 0.1em solid whitesmoke;
+  opacity: .4;
 }
 
 .navbar {
@@ -29,9 +53,15 @@ a {
   color:black;
 }
 
-@media (max-width: 43em){
-  body {
-    background-color: tomato;
-    display: flex;
-  }
+.artist-list {
+  background-color: #7e8479;
+  border: 0.1em solid whitesmoke;
+  color: white;
 }
+
+
+/* @media (min-width: 44em){
+  body {
+    background-color: 
+  }
+} */

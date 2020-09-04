@@ -1,25 +1,23 @@
 <%- include('../partials/header') %> 
-    <div id="main">
+    <div id="title">
         <h1><%= title %></h1>
-        <p>🥞Making pancakes... I mean comics! Definitely making comics and NOT pancakes🥞</p>
     </div>
-    <form action="/comics" method="POST" class="new-form"> <!-- Action needs attention -->
+    <form action="/comics" method="POST" class="new-form">
     <label for="title">-Title-</label>
     <input type="text" name="title" required>
     <br><label for="issueNum">-Issue/Trade #-</label>
     <input type="text" name="issueNum">
 
-    <br><label for="writers">-Writer-</label> <!-- Datalist should have all writers that are currently in db -->
+    <br><label for="writers">-Writer-</label>
         <select name="writers">
             <option disabled selected value style="display:none">choose from list or add above</option>
             <%- writers.map(w => `<option value="${w._id}">${w.name}</option>`).join('') %>
         </select>
-        <br><label for="artists">-Artist-</label> <!-- Datalist should have all atists that are currently in db -->
+        <br><label for="artists">-Artist-</label>
         <select name="artists">
             <option disabled selected value style="display:none">choose from list or add above</option>
             <%- artists.map(a => `<option value="${a._id}">${a.name}</option>`).join('') %>
         </select>
-    <!-- Also might still need checkboxes for isowned and read? -->
     <input type="submit" value="Add Comic">
     </form>
 

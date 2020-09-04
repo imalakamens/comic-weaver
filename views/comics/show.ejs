@@ -1,31 +1,29 @@
 <%- include('../partials/header') %> 
     <div id="main">
         <h1><%= comic.title %></h1>
-        <p>SHOW IT TO ME!👀</p>
-        <p>title:<%= comic.title %></p>
+        <p>👀</p>
+        <p class="every">Title:<%= comic.title %></p>
         <% if(comic.issueNum) { %> 
-        <p>volume:<%= comic.issueNum %></p>
+        <p>Volume:<%= comic.issueNum %></p>
         <% } %> 
 
-        <p>writer(s):
+        <p class="every">Writer(s):
         <% comic.writers.forEach(w => { %>
             <%= w.name %> 
         <% }) %> </p>
-        <p>artist(s):
+        <p class="every">Artist(s):
             <% comic.artists.forEach(a => { %>
                <%= a.name %>
            <% }) %> </p>
-        <!-- broken query below here DO FIX-->
         <% if(!comic.addedBy._id.equals(user._id)) { %>
-            <p>collected by: <%= comic.addedBy.name %>      
+            <p>Collected by: <%= comic.addedBy.name %>      
         <% } %> 
-        <p>read:<%= comic.isRead %></p>
     </div>
     
     <% if(comic.addedBy._id.equals(user._id)) { %>
         <a href="<%=comic._id%>/edit" class="btn btn-outline-light btn-sm">Edit Comic</a>
         
-        <form style="display: inline;" action="comics/<%=comic._id%>?_method=DELETE " method="POST"> <!-- finna be a delete action here -->
+        <form style="display: inline;" action="comics/<%=comic._id%>?_method=DELETE " method="POST">
             <button class="btn btn-danger btn-sm">Delete Comic</button>
         </form>
 

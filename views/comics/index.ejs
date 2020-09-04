@@ -1,17 +1,15 @@
 <%- include('../partials/header') %> 
-    <div id="mid">
+    <div id="title">
         <h1><%= title %></h1>
-        <p>💥Aite bet here is where all comics will be displayed💥</p>
     </div>
-    <div>
+    <div id="main">
         <% comics.forEach( c => { %>
         <div><%= c.title %>
+        <% if(c.issueNum) { %> &nbsp Volume: <%= c.issueNum %> 
+        <% } %> 
             <a href="comics/<%=c._id%>">
-                detail view 
+                Detail View 
             </a>
-            <form style="display: inline;" action="/comics/<%=c._id%>?_method=DELETE " method="POST"> <!-- finna be a delete action here -->
-                <button class="btn btn-danger btn-sm">Delete Comic</button>
-                </form>
         </div>
         <% }); %>      
     </div>
