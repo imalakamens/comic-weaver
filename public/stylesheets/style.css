@@ -66,6 +66,11 @@ a {
   display: flex;
   justify-content: flex-end;
 }
+@media only screen and (min-width: ) {
+  .navbar {
+    justify-content: flex-start;
+  }
+}
 
 .btn {
   color:black;
