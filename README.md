@@ -2,7 +2,7 @@
 
 Comic weaver is an app for comic collection management. Users will use The Weaver to add or remove items from their collection. Named after a family of small birds that create intricate nests, Comic Weaver allows users to add and remove comics from their collection for cataloguing, bragging and sharing.
 ## Screenshots
-
+![Screenshot of Comic Weaver](https://i.imgur.com/XxatGZP.png)
 
 ## Technologies Used
 HTML, CSS, Javascript, Node.Js, Express, and MongoDb/Mongoose
