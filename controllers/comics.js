@@ -7,7 +7,6 @@ module.exports = {
     new: newComic,
     create,
     show,
-    weave,
     delete: deleteComic,
     edit,
     update
@@ -46,20 +45,6 @@ function show(req, res) {
         res.render('comics/show', { comic, user: req.user } )
     });
 };
-
-function weave(req, res) {
-    Comic.findById(req.params.id, (err, comic) => { 
-        // req.params.id is the object of the book being viewed
-        comic.user = req.user._id;
-        comic.addedBy.push(comic.user);
-        comic.save(err => {
-            if(err) {
-                return res.redirect(`comics/${comic._id}`)
-            };
-            res.redirect('/comics')
-        });
-    });
-}
 
 function deleteComic(req,res) {
     Comic.findByIdAndDelete(req.params.id, err => {

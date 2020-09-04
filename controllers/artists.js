@@ -1,5 +1,4 @@
 const Artist = require('../models/artist');
-const Comic = require('../models/comic');
 
 module.exports = {
     new: newArtist,
