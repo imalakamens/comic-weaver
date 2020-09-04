@@ -11,4 +11,5 @@ HTML, CSS, Javascript, Node.Js, Express, and MongoDb/Mongoose
 [Follow the link](https://comic-weaver.herokuapp.com/), log in, and start by adding a comic to your collection or an artist or writer to the database. Edit comics in your collection, or remove them - other users won't be able to modify books you've added!
 
 ## Next Steps
-I would like to add a "read/reading" feature for each comic as well as the ability to add photos of each comic(though I worry about storage space!)
+* Add a "read/reading" feature for each comic (this is actually already partially implemented in the model of user)
+* Hide comics not added by logged in user
