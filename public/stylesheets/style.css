@@ -1,7 +1,7 @@
 
 body {
   padding: 50px;
-  font: 14px "Poppins", Helvetica, Arial, sans-serif;
+  font: .9em "Poppins", Helvetica, Arial, sans-serif;
   text-align: center;
   background-color: rgb(254, 224, 169);
   background-image: url(../images/weaver.jpg);
@@ -66,9 +66,9 @@ a {
   display: flex;
   justify-content: flex-end;
 }
-@media only screen and (min-width:43em ) {
+@media only screen and (max-width:43em ) {
   .navbar {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 
