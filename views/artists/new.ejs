@@ -3,11 +3,12 @@
         <h1><%= title %></h1>
     </div>
     <form action="/artists" method="POST" class="new-form"> <!-- Action needs attention -->
+        <div class="form-group">
         <label for="name">Artist's Name:</label> 
         <input type="text" name="name" required>
         <input type="submit" value="Add Artist">
     </form>
-    
+</div>
     <div class ="artist-list">
         <% artists.forEach(a => { %> 
                 <p><%= a.name %></p>

@@ -1,10 +1,10 @@
 <%- include('../partials/header') %> 
-    <div id="main">
+    <div id="block">
         <h1><%= comic.title %></h1>
         <p>👀</p>
-        <p class="every">Title:<%= comic.title %></p>
+        <p class="every">Title: <%= comic.title %></p>
         <% if(comic.issueNum) { %> 
-        <p>Volume:<%= comic.issueNum %></p>
+        <p>Volume: <%= comic.issueNum %></p>
         <% } %> 
 
         <p class="every">Writer(s):
@@ -18,7 +18,7 @@
         <% if(!comic.addedBy._id.equals(user._id)) { %>
             <p>Collected by: <%= comic.addedBy.name %>      
         <% } %> 
-    </div>
+
     
     <% if(comic.addedBy._id.equals(user._id)) { %>
         <a href="<%=comic._id%>/edit" class="btn btn-outline-light btn-sm">Edit Comic</a>
@@ -28,5 +28,5 @@
         </form>
 
     <% } %> 
-
+    </div>
 <%- include('../partials/footer') %> 

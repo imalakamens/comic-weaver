@@ -1,17 +1,18 @@
 <%- include('../partials/header') %> 
-    <div id="title">
+<section id="block">   
+<div id="title">
         <h1><%= title %></h1>
     </div>
     <div id="main">
         <% comics.forEach( c => { %>
-        <div><%= c.title %>
-        <% if(c.issueNum) { %> &nbsp Volume: <%= c.issueNum %> 
+        <div><em><strong><%= c.title %></strong></em>
+        <% if(c.issueNum) { %> Vol. <%= c.issueNum %> 
         <% } %> 
-            <a href="comics/<%=c._id%>">
+            <a id ="detail-link" href="comics/<%=c._id%>">
                 Detail View 
             </a>
         </div>
         <% }); %>      
     </div>
-
+</section>
 <%- include('../partials/footer') %> 

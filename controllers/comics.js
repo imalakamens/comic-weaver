@@ -15,8 +15,8 @@ module.exports = {
 
 function index(req, res) {
     Comic.find( {}, (err, comics) => {
-        res.render('comics/index', {title: 'All Comics', comics});
-    });
+        res.render('comics/index', {title: 'Collection', comics});
+    }).sort({});
 };
 
 // res.render('comics/new', {title: 'Add a Comic'} );

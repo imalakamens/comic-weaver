@@ -1,11 +1,24 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Poppins", Helvetica, Arial, sans-serif;
   text-align: center;
+  background-color: rgb(254, 224, 169);
+  background-image: url(../images/weaver.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  padding: 1em;
 }
 
 #login-text {
   list-style-type: none;
+}
+
+#block {
+  background-color: rgba(255, 255, 255, .6);
+  padding: .5em;
+}
+#detail-link{
+  color: #8b7d1b
 }
 
 ul{
@@ -14,6 +27,7 @@ ul{
 
 h1 {
   text-align: center;
+  font-family: 'Epilogue', sans-serif;
 }
 
 a {
@@ -32,16 +46,19 @@ a {
 }
 
 .new-form {
-  background-color: teal;
-  border: 0.1em solid whitesmoke;
+  padding: .5em;
+  background-color: rgba(139, 125, 27, .7);
+  border: 0.1em solid black;
   display: grid;
   justify-content: center;
+  color: whitesmoke;
+  font-style: oblique;
 }
 
 .edit-form{
-  background-color: teal;
-  border: 0.1em solid whitesmoke;
-  opacity: .4;
+  padding: 1em;
+  background-color:  rgba(139, 125, 27, .7);
+  border: 0.1em solid black;
 }
 
 .navbar {
@@ -54,14 +71,22 @@ a {
 }
 
 .artist-list {
+  padding: .5em;
   background-color: #7e8479;
-  border: 0.1em solid whitesmoke;
+  border: 0.1em solid black;
   color: white;
 }
+/* Some ovverrides for Bootstrap */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: black;
+  background-color: #fff;
+}
 
+a:hover {
+  color: whitesmoke;
+  text-decoration: underline;
+}
 
-/* @media (min-width: 44em){
-  body {
-    background-color: 
-  }
-} */
+.form-group {
+  padding: .5em;
+}
